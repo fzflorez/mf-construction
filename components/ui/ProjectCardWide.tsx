@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { Play, X, ChevronLeft, ChevronRight, Camera } from "lucide-react";
 
@@ -24,42 +24,19 @@ export default function ProjectCardWide({
   const [showModal, setShowModal] = useState(false);
   const [showVideoModal, setShowVideoModal] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [imageLoading, setImageLoading] = useState(false);
-
-  // Precargar imágenes cuando se abre el modal
-  useEffect(() => {
-    if (showModal && project.images.length > 0) {
-      project.images.forEach((imageSrc) => {
-        const img = new window.Image();
-        img.src = imageSrc;
-      });
-    }
-  }, [showModal, project.images]);
 
   const nextSlide = () => {
-    setImageLoading(true);
-    setTimeout(() => {
-      setCurrentSlide((prev) => (prev + 1) % project.images.length);
-      setImageLoading(false);
-    }, 100);
+    setCurrentSlide((prev) => (prev + 1) % project.images.length);
   };
 
   const prevSlide = () => {
-    setImageLoading(true);
-    setTimeout(() => {
-      setCurrentSlide(
-        (prev) => (prev - 1 + project.images.length) % project.images.length,
-      );
-      setImageLoading(false);
-    }, 100);
+    setCurrentSlide(
+      (prev) => (prev - 1 + project.images.length) % project.images.length,
+    );
   };
 
   const goToSlide = (slideIndex: number) => {
-    setImageLoading(true);
-    setTimeout(() => {
-      setCurrentSlide(slideIndex);
-      setImageLoading(false);
-    }, 100);
+    setCurrentSlide(slideIndex);
   };
 
   return (
@@ -205,11 +182,6 @@ export default function ProjectCardWide({
               <div className="relative h-full overflow-hidden rounded-lg">
                 {/* Main Image Display */}
                 <div className="relative h-full flex items-center justify-center bg-gray-100">
-                  {imageLoading && (
-                    <div className="absolute inset-0 flex items-center justify-center bg-gray-100 z-10">
-                      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-amber-600"></div>
-                    </div>
-                  )}
                   <Image
                     src={project.images[currentSlide]}
                     alt={`${project.title} - Imagen ${currentSlide + 1}`}
@@ -217,7 +189,6 @@ export default function ProjectCardWide({
                     className="object-contain"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
                     priority={currentSlide === 0}
-                    onLoad={() => setImageLoading(false)}
                   />
 
                   {/* Navigation Arrows */}
@@ -309,7 +280,6 @@ export default function ProjectCardWide({
                   className="w-full h-full object-contain"
                   autoPlay
                   muted
-                  loop
                   controls
                   playsInline
                 >
