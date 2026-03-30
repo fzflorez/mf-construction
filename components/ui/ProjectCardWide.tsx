@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { Play, X, ChevronLeft, ChevronRight, Camera } from "lucide-react";
+import OptimizedModalImage from "./OptimizedModalImage";
 
 interface ProjectCardWideProps {
   project: {
@@ -182,12 +183,9 @@ export default function ProjectCardWide({
               <div className="relative h-full overflow-hidden rounded-lg">
                 {/* Main Image Display */}
                 <div className="relative h-full flex items-center justify-center bg-gray-100">
-                  <Image
+                  <OptimizedModalImage
                     src={project.images[currentSlide]}
                     alt={`${project.title} - Imagen ${currentSlide + 1}`}
-                    fill
-                    className="object-contain"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
                     priority={currentSlide === 0}
                   />
 
