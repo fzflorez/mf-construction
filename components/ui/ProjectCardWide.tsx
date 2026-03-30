@@ -77,6 +77,8 @@ export default function ProjectCardWide({
             className="w-full h-full object-cover"
             poster={project.images[0]}
             muted
+            preload="metadata"
+            playsInline
           >
             <source src={project.video} type="video/mp4" />
           </video>
@@ -185,7 +187,8 @@ export default function ProjectCardWide({
                     alt={`${project.title} - Imagen ${currentSlide + 1}`}
                     fill
                     className="object-contain"
-                    sizes="100vw"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
+                    priority={currentSlide === 0}
                   />
 
                   {/* Navigation Arrows */}
@@ -229,6 +232,7 @@ export default function ProjectCardWide({
                       fill
                       className="object-cover"
                       sizes="80px"
+                      loading="lazy"
                     />
                   </button>
                 ))}

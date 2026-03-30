@@ -1,11 +1,28 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import dynamic from "next/dynamic";
 import Navbar from "@/components/ui/Navbar";
-import ProjectCardWide from "@/components/ui/ProjectCardWide";
 import Footer from "@/components/ui/Footer";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
 import { projects } from "@/data/projects";
+
+// Lazy loading de ProjectCardWide
+const ProjectCardWide = dynamic(
+  () => import("@/components/ui/ProjectCardWide"),
+  {
+    loading: () => (
+      <div className="bg-stone-800 rounded-xl shadow-2xl overflow-hidden animate-pulse">
+        <div className="aspect-video bg-stone-700"></div>
+        <div className="p-6">
+          <div className="h-6 bg-stone-700 rounded mb-4"></div>
+          <div className="h-4 bg-stone-700 rounded mb-4"></div>
+          <div className="h-10 bg-stone-700 rounded"></div>
+        </div>
+      </div>
+    ),
+  },
+);
 
 export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState("all");
