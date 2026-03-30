@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { Play, X, ChevronLeft, ChevronRight, Camera } from "lucide-react";
+import FastImage from "./FastImage";
 
 interface ProjectCardWideProps {
   project: {
@@ -24,19 +25,42 @@ export default function ProjectCardWide({
   const [showModal, setShowModal] = useState(false);
   const [showVideoModal, setShowVideoModal] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [imageLoading, setImageLoading] = useState(false);
+
+  // Precargar imágenes cuando se abre el modal
+  useEffect(() => {
+    if (showModal && project.images.length > 0) {
+      project.images.forEach((imageSrc) => {
+        const img = new window.Image();
+        img.src = imageSrc;
+      });
+    }
+  }, [showModal, project.images]);
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % project.images.length);
+    setImageLoading(true);
+    setTimeout(() => {
+      setCurrentSlide((prev) => (prev + 1) % project.images.length);
+      setImageLoading(false);
+    }, 100);
   };
 
   const prevSlide = () => {
-    setCurrentSlide(
-      (prev) => (prev - 1 + project.images.length) % project.images.length,
-    );
+    setImageLoading(true);
+    setTimeout(() => {
+      setCurrentSlide(
+        (prev) => (prev - 1 + project.images.length) % project.images.length,
+      );
+      setImageLoading(false);
+    }, 100);
   };
 
   const goToSlide = (slideIndex: number) => {
-    setCurrentSlide(slideIndex);
+    setImageLoading(true);
+    setTimeout(() => {
+      setCurrentSlide(slideIndex);
+      setImageLoading(false);
+    }, 100);
   };
 
   return (
@@ -182,10 +206,15 @@ export default function ProjectCardWide({
               <div className="relative h-full overflow-hidden rounded-lg">
                 {/* Main Image Display */}
                 <div className="relative h-full flex items-center justify-center bg-gray-100">
-                  <Image
+                  {imageLoading && (
+                    <div className="absolute inset-0 flex items-center justify-center bg-gray-100 z-10">
+                      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-amber-600"></div>
+                    </div>
+                  )}
+                  <FastImage
                     src={project.images[currentSlide]}
                     alt={`${project.title} - Imagen ${currentSlide + 1}`}
-                    fill
+                    fill={true}
                     className="object-contain"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
                     priority={currentSlide === 0}
