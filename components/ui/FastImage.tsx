@@ -1,5 +1,5 @@
-import Image from 'next/image';
-import { useState } from 'react';
+import Image from "next/image";
+import { useState } from "react";
 
 interface FastImageProps {
   src: string;
@@ -14,7 +14,7 @@ export default function FastImage({
   src,
   alt,
   fill = false,
-  className = '',
+  className = "",
   sizes,
   priority = false,
 }: FastImageProps) {
@@ -33,14 +33,14 @@ export default function FastImage({
         sizes={sizes}
         priority={priority}
         className={`${className} transition-opacity duration-200 ${
-          isLoading ? 'opacity-0' : 'opacity-100'
+          isLoading ? "opacity-0" : "opacity-100"
         }`}
-        onLoadingComplete={() => setIsLoading(false)}
+        onLoad={() => setIsLoading(false)}
         onError={() => {
           setError(true);
           setIsLoading(false);
         }}
-        loading={priority ? undefined : 'lazy'}
+        loading={priority ? undefined : "lazy"}
       />
       {error && (
         <div className="absolute inset-0 flex items-center justify-center bg-gray-100 rounded">

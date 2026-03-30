@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { Play, X, ChevronLeft, ChevronRight, Camera } from "lucide-react";
-import FastImage from "./FastImage";
 
 interface ProjectCardWideProps {
   project: {
@@ -211,13 +210,14 @@ export default function ProjectCardWide({
                       <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-amber-600"></div>
                     </div>
                   )}
-                  <FastImage
+                  <Image
                     src={project.images[currentSlide]}
                     alt={`${project.title} - Imagen ${currentSlide + 1}`}
-                    fill={true}
+                    fill
                     className="object-contain"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
                     priority={currentSlide === 0}
+                    onLoad={() => setImageLoading(false)}
                   />
 
                   {/* Navigation Arrows */}
@@ -258,10 +258,16 @@ export default function ProjectCardWide({
                     <Image
                       src={image}
                       alt={`Thumbnail ${imgIndex + 1}`}
-                      fill
+                      width={80}
+                      height={80}
                       className="object-cover"
                       sizes="80px"
                       loading="lazy"
+                      style={{
+                        width: "80px",
+                        height: "80px",
+                        objectFit: "cover",
+                      }}
                     />
                   </button>
                 ))}

@@ -23,9 +23,6 @@ export const projects = [
     video: "/videos/habitacion-estuco.mp4",
     images: [
       "/images/habitacion-estuco-4.webp",
-      "/images/habitacion-estuco-1.webp",
-      "/images/habitacion-estuco-2.webp",
-      "/images/habitacion-estuco-3.webp",
     ],
     featured: true,
   },
@@ -37,9 +34,6 @@ export const projects = [
     video: "/videos/habitacion-estuco.mp4",
     images: [
       "/images/habitacion-estuco-4.webp",
-      "/images/habitacion-estuco-1.webp",
-      "/images/habitacion-estuco-2.webp",
-      "/images/habitacion-estuco-3.webp",
     ],
     featured: true,
   },
@@ -51,9 +45,6 @@ export const projects = [
     video: "/videos/habitacion-estuco.mp4",
     images: [
       "/images/habitacion-estuco-4.webp",
-      "/images/habitacion-estuco-1.webp",
-      "/images/habitacion-estuco-2.webp",
-      "/images/habitacion-estuco-3.webp",
     ],
     featured: true,
   },
@@ -65,9 +56,6 @@ export const projects = [
     video: "/videos/habitacion-estuco.mp4",
     images: [
       "/images/habitacion-estuco-4.webp",
-      "/images/habitacion-estuco-1.webp",
-      "/images/habitacion-estuco-2.webp",
-      "/images/habitacion-estuco-3.webp",
     ],
     featured: true,
   },
