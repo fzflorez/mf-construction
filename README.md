@@ -1,16 +1,16 @@
-# MF Obras & Acabados
+# MF | Construcción
 
 Portafolio digital profesional para mostrar trabajos de construcción y acabados.
 
 ## 🎯 Descripción
 
-Aplicación web moderna y responsive construida con Next.js para mostrar proyectos de construcción como enchapes, estuco, pintura, repello y remodelaciones.
+Aplicación web moderna y responsive construida con Next.js para mostrar proyectos de construcción como estuco, pintura, repello y obra civil.
 
 ## 🧱 Stack Tecnológico
 
 - **Next.js 16** (App Router)
 - **Tailwind CSS** (v4)
-- **Framer Motion** (animaciones)
+- **AOS** (Animate On Scroll)
 - **TypeScript**
 - **Lucide React** (iconos)
 
@@ -67,12 +67,9 @@ mf-obras-y-acabados/
 │   ├── layout.tsx               # Layout principal
 │   └── page.tsx                 # Página principal
 ├── components/ui/               # Componentes de UI reutilizables
-│   ├── About.tsx               # Sección "Sobre mí"
-│   ├── FilterButtons.tsx       # Botones de filtro de proyectos
 │   ├── Footer.tsx              # Footer del sitio
-│   ├── Hero.tsx                # Sección hero principal
 │   ├── Navbar.tsx              # Barra de navegación
-│   ├── ProjectCard.tsx         # Card individual de proyecto
+│   ├── ProjectCardWide.tsx     # Card ancha de proyecto
 │   └── WhatsAppButton.tsx      # Botón flotante de WhatsApp
 ├── data/                        # Datos de la aplicación
 │   └── projects.js             # Mock data de proyectos
@@ -85,8 +82,8 @@ mf-obras-y-acabados/
 ### ✅ Características Principales
 
 - **Diseño Responsive**: Mobile-first, adaptable a todos los dispositivos
-- **Animaciones Fluidas**: Con Framer Motion para mejor UX
-- **Filtros de Proyectos**: Por categoría (enchape, pintura, repello, estuco, remodelación)
+- **Animaciones Fluidas**: Con AOS para mejor UX
+- **Filtros de Proyectos**: Por categoría (estuco, pintura, repello, obra-civil)
 - **Navegación Suave**: Scroll suave entre secciones
 - **Botón WhatsApp**: Contacto directo con clientes
 - **Lazy Loading**: Optimización de carga de imágenes
@@ -94,23 +91,19 @@ mf-obras-y-acabados/
 
 ### 🎨 Componentes UI
 
-- **Navbar**: Navegación fija con menú responsive
-- **Hero**: Sección principal con call-to-action
-- **ProjectCard**: Cards animados para mostrar proyectos
-- **FilterButtons**: Sistema de filtrado interactivo
-- **About**: Sección sobre la empresa y servicios
-- **Footer**: Información de contacto y redes sociales
+- **Navbar**: Navegación fija con botón de contacto
+- **ProjectCardWide**: Cards anchas para mostrar proyectos con video y galería
+- **Footer**: Información de contacto y enlaces rápidos
 - **WhatsAppButton**: Botón flotante para contacto rápido
 
 ## 📱 Datos de Ejemplo
 
-El proyecto incluye **9 proyectos de ejemplo** distribuidos en 5 categorías:
+El proyecto incluye **5 proyectos de ejemplo** distribuidos en 4 categorías:
 
-- **Enchape** (2 proyectos)
-- **Pintura** (2 proyectos)
-- **Repello** (2 proyectos)
-- **Estuco** (1 proyecto)
-- **Remodelación** (2 proyectos)
+- **Estuco** (2 proyectos)
+- **Pintura** (1 proyecto)
+- **Repello** (1 proyecto)
+- **Obra Civil** (1 proyecto)
 
 ## 🔧 Personalización
 
@@ -119,7 +112,7 @@ El proyecto incluye **9 proyectos de ejemplo** distribuidos en 5 categorías:
 Edita estos archivos:
 
 1. **Número de WhatsApp**:
-   - Busca `https://wa.me/573123456789` en los componentes
+   - Busca `https://wa.me/573167043836` en los componentes
    - Reemplaza con tu número (formato: `https://wa.me/código+sin+0+número`)
 
 2. **Email y otros contactos**:
@@ -131,12 +124,17 @@ Edita `data/projects.js`:
 
 ```javascript
 {
-  id: 10,
+  id: 6,
   title: "Nuevo Proyecto",
   description: "Descripción del proyecto",
-  category: "pintura", // categorías: enchape, pintura, repello, estuco, remodelacion
-  image: "/projects/nuevo-proyecto.jpg",
-  video: null, // o URL del video
+  category: "pintura", // categorías: estuco, pintura, repello, obra-civil
+  video: "/videos/nuevo-proyecto.mp4",
+  images: [
+    "/images/proyecto-1.jpg",
+    "/images/proyecto-2.jpg",
+    "/images/proyecto-3.jpg",
+    "/images/proyecto-4.jpg"
+  ],
   featured: true // para destacar en la web
 }
 ```

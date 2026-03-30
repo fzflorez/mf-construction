@@ -2,7 +2,6 @@
 
 import { useMemo, useState } from "react";
 import Navbar from "@/components/ui/Navbar";
-// import Hero from "@/components/ui/Hero";
 import ProjectCardWide from "@/components/ui/ProjectCardWide";
 import Footer from "@/components/ui/Footer";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
@@ -27,7 +26,6 @@ export default function Home() {
     }
     return projects
       .filter((project) => {
-        // Si es estuco o pintura, mostrar proyectos de ambas categorías
         if (selectedCategory === "estuco" || selectedCategory === "pintura") {
           return (
             project.category === "estuco" || project.category === "pintura"
@@ -42,7 +40,6 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-orange-50">
       <Navbar />
-      {/* <Hero /> */}
 
       {/* Projects Section */}
       <section id="proyectos" className="py-20 bg-black/90">
@@ -55,7 +52,7 @@ export default function Home() {
               data-aos-duration="800"
               className="text-xl lg:text-2xl font-bold mb-4"
             >
-              Mis Trabajos Realizados
+              Trabajos Realizados
             </h2>
 
             <p
@@ -91,7 +88,6 @@ export default function Home() {
                   }
                   onMouseEnter={(e) => {
                     if (selectedCategory === category.id) {
-                      // No hacer hover si está seleccionado
                       return;
                     } else {
                       e.currentTarget.style.backgroundColor =
@@ -101,7 +97,6 @@ export default function Home() {
                   }}
                   onMouseLeave={(e) => {
                     if (selectedCategory === category.id) {
-                      // No hacer hover si está seleccionado
                       return;
                     } else {
                       e.currentTarget.style.backgroundColor =
@@ -128,7 +123,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* <About /> */}
       <Footer />
       <WhatsAppButton />
     </div>

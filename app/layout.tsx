@@ -16,9 +16,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "MF Obras & Acabados",
-  description:
-    "Especialistas en enchapes, estuco, pintura, repello y remodelaciones. Calidad en cada acabado.",
+  title: "MF | Construcción",
 };
 
 export default function RootLayout({
