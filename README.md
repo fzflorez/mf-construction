@@ -1,36 +1,192 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# MF Obras & Acabados
 
-## Getting Started
+Portafolio digital profesional para mostrar trabajos de construcción y acabados.
 
-First, run the development server:
+## 🎯 Descripción
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Aplicación web moderna y responsive construida con Next.js para mostrar proyectos de construcción como enchapes, estuco, pintura, repello y remodelaciones.
+
+## 🧱 Stack Tecnológico
+
+- **Next.js 16** (App Router)
+- **Tailwind CSS** (v4)
+- **Framer Motion** (animaciones)
+- **TypeScript**
+- **Lucide React** (iconos)
+
+## 🎨 Identidad Visual
+
+- **Color principal**: #D97706 (Amber 600)
+- **Color secundario**: #78350F (Amber 900)
+- **Color de fondo**: #FDF6F0 (Orange 50)
+- **Color de texto**: #1F2937 (Gray 800)
+- **Tipografía títulos**: Poppins
+- **Tipografía cuerpo**: Inter
+
+## 🚀 Instalación y Ejecución
+
+### Prerrequisitos
+
+- Node.js 18+ instalado
+- npm o pnpm
+
+### Pasos para ejecutar el proyecto
+
+1. **Instalar dependencias**:
+
+   ```bash
+   npm install
+   # o
+   pnpm install
+   ```
+
+2. **Ejecutar servidor de desarrollo**:
+
+   ```bash
+   npm run dev
+   # o
+   pnpm dev
+   ```
+
+3. **Abrir en el navegador**:
+   Visita [http://localhost:3000](http://localhost:3000)
+
+4. **Construir para producción**:
+   ```bash
+   npm run build
+   # o
+   pnpm build
+   ```
+
+## 📁 Estructura del Proyecto
+
+```
+mf-obras-y-acabados/
+├── app/                          # App Router de Next.js
+│   ├── globals.css              # Estilos globales y configuración
+│   ├── layout.tsx               # Layout principal
+│   └── page.tsx                 # Página principal
+├── components/ui/               # Componentes de UI reutilizables
+│   ├── About.tsx               # Sección "Sobre mí"
+│   ├── FilterButtons.tsx       # Botones de filtro de proyectos
+│   ├── Footer.tsx              # Footer del sitio
+│   ├── Hero.tsx                # Sección hero principal
+│   ├── Navbar.tsx              # Barra de navegación
+│   ├── ProjectCard.tsx         # Card individual de proyecto
+│   └── WhatsAppButton.tsx      # Botón flotante de WhatsApp
+├── data/                        # Datos de la aplicación
+│   └── projects.js             # Mock data de proyectos
+├── public/                      # Archivos estáticos
+└── README.md                   # Este archivo
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🧩 Funcionalidades Implementadas
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### ✅ Características Principales
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Diseño Responsive**: Mobile-first, adaptable a todos los dispositivos
+- **Animaciones Fluidas**: Con Framer Motion para mejor UX
+- **Filtros de Proyectos**: Por categoría (enchape, pintura, repello, estuco, remodelación)
+- **Navegación Suave**: Scroll suave entre secciones
+- **Botón WhatsApp**: Contacto directo con clientes
+- **Lazy Loading**: Optimización de carga de imágenes
+- **SEO Optimizado**: Meta tags y estructura semántica
 
-## Learn More
+### 🎨 Componentes UI
 
-To learn more about Next.js, take a look at the following resources:
+- **Navbar**: Navegación fija con menú responsive
+- **Hero**: Sección principal con call-to-action
+- **ProjectCard**: Cards animados para mostrar proyectos
+- **FilterButtons**: Sistema de filtrado interactivo
+- **About**: Sección sobre la empresa y servicios
+- **Footer**: Información de contacto y redes sociales
+- **WhatsAppButton**: Botón flotante para contacto rápido
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📱 Datos de Ejemplo
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+El proyecto incluye **9 proyectos de ejemplo** distribuidos en 5 categorías:
 
-## Deploy on Vercel
+- **Enchape** (2 proyectos)
+- **Pintura** (2 proyectos)
+- **Repello** (2 proyectos)
+- **Estuco** (1 proyecto)
+- **Remodelación** (2 proyectos)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🔧 Personalización
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Cambiar Información de Contacto
+
+Edita estos archivos:
+
+1. **Número de WhatsApp**:
+   - Busca `https://wa.me/573123456789` en los componentes
+   - Reemplaza con tu número (formato: `https://wa.me/código+sin+0+número`)
+
+2. **Email y otros contactos**:
+   - Edita `components/ui/Footer.tsx`
+
+### Agregar/Editar Proyectos
+
+Edita `data/projects.js`:
+
+```javascript
+{
+  id: 10,
+  title: "Nuevo Proyecto",
+  description: "Descripción del proyecto",
+  category: "pintura", // categorías: enchape, pintura, repello, estuco, remodelacion
+  image: "/projects/nuevo-proyecto.jpg",
+  video: null, // o URL del video
+  featured: true // para destacar en la web
+}
+```
+
+### Personalizar Colores y Tipografía
+
+Edita `app/globals.css`:
+
+```css
+:root {
+  --primary: #d97706; /* Color principal */
+  --secondary: #78350f; /* Color secundario */
+  --background: #fdf6f0; /* Color de fondo */
+}
+```
+
+## 🚀 Deploy
+
+### Vercel (Recomendado)
+
+1. Conecta tu repositorio a [Vercel](https://vercel.com)
+2. Configura las variables de entorno si es necesario
+3. Deploy automático en cada push
+
+### Netlify
+
+1. Build command: `npm run build`
+2. Publish directory: `.next`
+3. Deploy automático desde GitHub
+
+## 📈 Optimizaciones
+
+- **Performance**: Next.js 16 con optimización automática
+- **SEO**: Meta tags, structured data, URLs amigables
+- **Accessibility**: ARIA labels, semántica HTML5
+- **Images**: Next/Image para optimización automática
+- **Fonts**: Google Fonts con preload
+
+## 🤝 Contribuir
+
+1. Fork el proyecto
+2. Crear una rama (`git checkout -b feature/nueva-funcionalidad`)
+3. Commit cambios (`git commit -m 'Agregar nueva funcionalidad'`)
+4. Push a la rama (`git push origin feature/nueva-funcionalidad`)
+5. Abrir un Pull Request
+
+## 📄 Licencia
+
+Este proyecto es para uso comercial. Contacta para más información sobre licenciamiento.
+
+---
+
+**📞 Contacto**: Para soporte o personalización, contacta a través del WhatsApp integrado en el sitio.
